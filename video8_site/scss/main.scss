@@ -1,0 +1,13 @@
+$utilities-colors: map-merge(
+  $theme-colors-rgb,
+  (
+    "black": to-rgb($black),
+    "white": to-rgb($white),
+    "body":  to-rgb($body-color)
+  )
+);
+
+$utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
+
+@import "../node_modules/bootstrap/scss/bootstrap"; // You should already have this as well, so no need to copy this part.
